@@ -37,9 +37,9 @@ textarea{
 }
 
 .textBox{
+  line-height: 81px;;
   width: 1150px;
   height: 81px;
-  background-color: #06AED5;
   display: flex;
   justify-content: right;
 }
@@ -47,6 +47,10 @@ textarea{
 .time-block{
   text-align: center;
   border-radius: 15px;
+}
+
+.currentHour{
+  background-color: red;
 }
 
 .row {

@@ -36,7 +36,9 @@ $(document).ready(function(){
         var newLabel = document.createElement("label");
         var newButton = document.createElement("button");
         //Setting the value of the input box text to the corresponding array value
-        newInput.value = localStorage.getItem("savedInfo").split(",")[i];
+        if(localStorage.getItem("savedInfo")){
+            newInput.value = localStorage.getItem("savedInfo").split(",")[i];
+        }
         //Adding class designations to the created items.
         $(newDiv).addClass("row");
         $(newInput).addClass("textBox col-sm");

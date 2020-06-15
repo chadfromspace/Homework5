@@ -8,13 +8,16 @@ $(document).ready(function(){
     $("#currentDay").html(moment().format("dddd") + ", " + moment().format("MMMM Do"));
     $(newForm).on("submit",function(event){
         event.preventDefault();
-            /*
-            for(i=0;i<inputArray.length;i++){
-                var newInputStore = localStorage.setItem("savedInfo",)
-            }
-            */
+        inputArray = [];
+        localStorage.clear();
+        for(i=0;i<18;i+=2){
+            inputArray.push(event.target[i].value);
+        }
+        for(i=0;i<9;i++){
+            localStorage.setItem(i,inputArray[i]);
+        }        
     })
-    for(i=0;i<9;i++){        
+    for(i=0;i<9;i++){
         var x = -1;
         var y = i+9
         var newDiv = document.createElement("div");
@@ -22,6 +25,9 @@ $(document).ready(function(){
         var newLabel = document.createElement("label");
         var newButton = document.createElement("button");
         var currentHourValue;
+        if(localStorage.getItem(0)!==null){
+            newInput.value = localStorage.getItem(i);
+        }
         $(newDiv).addClass("row");
         $(newInput).addClass("textBox col-sm");
         $(newLabel).addClass("col-sm-1 scheduleLabel");

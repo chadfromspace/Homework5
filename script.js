@@ -7,7 +7,12 @@ $(document).ready(function(){
     $(".container").append(newForm);
     $("#currentDay").html(moment().format("dddd") + ", " + moment().format("MMMM Do"));
     $(newForm).on("submit",function(event){
-        event.preventDefault();        
+        event.preventDefault();
+            /*
+            for(i=0;i<inputArray.length;i++){
+                var newInputStore = localStorage.setItem("savedInfo",)
+            }
+            */
     })
     for(i=0;i<9;i++){        
         var x = -1;
@@ -19,9 +24,9 @@ $(document).ready(function(){
         var currentHourValue;
         $(newDiv).addClass("row");
         $(newInput).addClass("textBox col-sm");
-        $(newInput).attr("id",i+9);
         $(newLabel).addClass("col-sm-1 scheduleLabel");
         $(newButton).addClass("btn btn-dark col-sm-1 saveButton");
+        $(newButton).html("Save");
         if(i<4){
             $(newLabel).html(i+9+"AM");
             currentHourValue = y;
@@ -30,13 +35,13 @@ $(document).ready(function(){
             currentHourValue = i-3;
         }
         if(y>currentHourInt){
-            $(newInput).css("background-color","red");
+            $(newInput).css("background-color","rgb(119, 10, 10)");
         }
         if(y<currentHourInt){
-            $(newInput).css("background-color","blue");
+            $(newInput).css("background-color","rgb(6, 34, 156)");
         }
         if(y===currentHourInt){
-            $(newInput).css("background-color","purple");
+            $(newInput).css("background-color","rgb(100, 67, 161)");
         }
         $(newForm).append(newDiv);
         $(newDiv).append(newLabel);
